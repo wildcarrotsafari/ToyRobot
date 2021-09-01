@@ -26,6 +26,23 @@ namespace ToyRobotSimultator.Tests
             Assert.IsTrue(string.IsNullOrEmpty(response));           
         }
 
+        [Test]
+        public void JunkAndValidCommand()
+        {
+            ToyRobot robot = new ToyRobot();
+            List<string> commands = new List<string>()
+            {
+                "TRANSFORM",
+                "PLACE 0,0,NORTH",
+                "REPORT"
+
+            };
+
+            var response = robot.IssueCommands(commands);
+            Assert.AreEqual("Output: 0,0,NORTH", response);
+        }
+
+
         [Test] 
         public void NorthMovement()
         {
