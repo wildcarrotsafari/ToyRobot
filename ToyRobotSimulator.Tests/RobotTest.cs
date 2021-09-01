@@ -13,6 +13,19 @@ namespace ToyRobotSimultator.Tests
         {
         }
 
+        [Test]
+        public void JunkCommand()
+        {
+            ToyRobot robot = new ToyRobot();
+            List<string> commands = new List<string>()
+            {
+                "EXTERMINATE"                
+            };
+
+            var response = robot.IssueCommands(commands);
+            Assert.IsTrue(string.IsNullOrEmpty(response));           
+        }
+
         [Test] 
         public void NorthMovement()
         {
